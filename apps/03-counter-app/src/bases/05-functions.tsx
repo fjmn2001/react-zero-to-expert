@@ -1,22 +1,9 @@
-// @ts-ignore
-;(() => {
-  const greeting = (name: string) => `Hi ${name}`
+export const getUser = () => ({
+  id: "uuid",
+  username: "crazyuser",
+})
 
-  console.log(greeting("Francisco"))
-
-  const getUser = () => ({
-    id: "uuid",
-    username: "crazyuser",
-  })
-
-  const user = getUser()
-  console.log(user)
-
-  const getActiveUser = (username: string) => ({
-    id: "uuid",
-    username,
-  })
-
-  const otherUser = getActiveUser("crazyuser")
-  console.log(otherUser)
-})()
+export const getActiveUser = (username: string) => ({
+  id: "uuid",
+  username,
+})
