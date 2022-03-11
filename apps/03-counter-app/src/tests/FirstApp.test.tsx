@@ -1,4 +1,3 @@
-import * as React from "react"
 import { shallow } from "enzyme"
 
 import { describe, expect, test } from "vitest"
@@ -12,3 +11,4 @@ describe("Testing FirstApp", () => {
     expect(wrapper).toMatchSnapshot()
   })
 })
+// how remove react from header
