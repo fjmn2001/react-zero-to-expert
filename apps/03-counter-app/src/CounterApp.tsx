@@ -1,7 +1,7 @@
 import "./index.css"
 import { useState } from "react"
 
-const CounterApp = ({ value = 0 }: { value: number }) => {
+const CounterApp = ({ value = 0 }: { value?: number }) => {
   const [counter, setCounter] = useState(value)
 
   const handleIncrement = () => {

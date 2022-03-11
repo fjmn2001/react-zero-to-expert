@@ -1,4 +1,4 @@
 import { render } from "react-dom"
-import FirstApp from "./FirstApp"
+import CounterApp from "./CounterApp"
 
-render(<FirstApp greeting={"Hi there!"} />, document.getElementById("root"))
+render(<CounterApp />, document.getElementById("root"))
