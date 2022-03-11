@@ -10,5 +10,14 @@ describe("Testing FirstApp", () => {
 
     expect(wrapper).toMatchSnapshot()
   })
+
+  test("it should show the subtitle from props", () => {
+    const greeting = "Hi there!"
+    const subtitle = "I am other subtitle"
+    const wrapper = shallow(
+      <FirstApp greeting={greeting} subtitle={subtitle} />
+    )
+    const paragraph = wrapper.find("p").text()
+    expect(paragraph).toBe(subtitle)
+  })
 })
-// how remove react from header
