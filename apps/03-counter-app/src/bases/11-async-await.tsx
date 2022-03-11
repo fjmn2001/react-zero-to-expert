@@ -1,23 +1,17 @@
-// @ts-ignore
-;(async () => {
-  const apiKey = "g13oXIzvbtzxNnCw6hjWVR31UjL0yGVw"
+import axios from "axios"
 
-  const getImage = async () => {
-    try {
-      const response = await fetch(
-        `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`
-      )
-      const { data } = await response.json()
-      const { url } = data.images.original
+const apiKey = "g13oXIzvbtzxNnCw6hjWVR31UjL0yGVw"
 
-      const img = document.createElement("img")
-      img.src = url
+export const getImage = async (): Promise<string | Error> => {
+  try {
+    const response = await axios(
+      `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`
+    )
+    const { data } = response.data
+    const { url } = data.images.original
 
-      document.body.append(img)
-    } catch (e) {
-      console.error(e)
-    }
+    return url
+  } catch (error) {
+    return error as Error
   }
-
-  await getImage()
-})()
+}
