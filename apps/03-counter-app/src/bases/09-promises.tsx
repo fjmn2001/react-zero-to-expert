@@ -1,23 +1,14 @@
 import { getHeroById } from "./08-import"
 import { Hero } from "../data/heroes"
 
-const getHeroByIdAsync = () => {
+export const getHeroByIdAsync = (id: number) => {
   return new Promise<Hero>((resolve, reject) => {
     setTimeout(() => {
-      const heroId = 2
-      const hero = getHeroById(heroId)
+      const hero = getHeroById(id)
 
       return hero
         ? resolve(hero)
-        : reject(new Error(`Hero ${heroId} does not exists.`))
-    }, 2000)
+        : reject(new Error(`Hero ${id} does not exists.`))
+    })
   })
 }
-
-console.log(getHeroByIdAsync)
-
-getHeroByIdAsync()
-  .then((hero: Hero) => {
-    console.log(`Then of promise. ${hero.name}`)
-  })
-  .catch(console.log)
