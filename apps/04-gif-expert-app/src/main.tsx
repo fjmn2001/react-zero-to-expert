@@ -1,3 +1,6 @@
 import { render } from "react-dom"
 
-render(<h1>Hi there</h1>, document.getElementById("root"))
+import "./index.css"
+import GifExpertApp from "./GifExpertApp"
+
+render(<GifExpertApp />, document.getElementById("root"))
