@@ -1,26 +1,19 @@
 import { useState } from "react"
+import AddCategory from "./category/AddCategory"
+import GifGrid from "./category/GifGrid"
 
 const GifExpertApp = () => {
-  const [categories, setCategories] = useState([
-    "One Punch",
-    "Samurai X",
-    "Dragon Ball",
-  ])
-
-  const handleAdd = () => {
-    setCategories((categories) => ["Other", ...categories])
-  }
+  const [categories, setCategories] = useState(["One Punch"])
 
   return (
     <>
-      <h1>Gif Expert App</h1>
+      <h2>Gif Expert App</h2>
+      <AddCategory setCategories={setCategories} />
       <hr />
-
-      <button onClick={handleAdd}>Add</button>
 
       <ol>
         {categories.map((category) => (
-          <li key={category}>{category}</li>
+          <GifGrid key={category} category={category} />
         ))}
       </ol>
     </>
