@@ -1,38 +1,22 @@
-const apiKey = "g13oXIzvbtzxNnCw6hjWVR31UjL0yGVw"
+import GifGridItem from "./GifGridItem"
+import { useFetchGif } from "./useFetchGif"
 
 const GifGrid = ({ category }: { category: string }) => {
-  const getGifs = async () => {
-    const query = "Rick"
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${query}&limit=10`
-    const response = await fetch(url)
-    const { data } = await response.json()
-
-    const gifs = data.map(
-      ({
-        id,
-        title,
-        images,
-      }: {
-        id: string
-        title: string
-        // eslint-disable-next-line camelcase
-        images: { downsized_large: { url: string } }
-      }) => {
-        return { id, title, url: images.downsized_large.url }
-      }
-    )
-
-    console.log(gifs)
-  }
-
-  // id
-  // downsize_large
-  getGifs()
+  const { data: images, loading } = useFetchGif(category)
 
   return (
     <>
-      <h3>Gif Grid</h3>
-      <h4>{category}</h4>
+      <h3 className={"animate__animated animate__fadeIn"}>{category}</h3>
+      {loading && (
+        <p className={"animate__animated animate__flash"}>Loading...</p>
+      )}
+      <div className={"card-grid"}>
+        <ol>
+          {images.map((image) => (
+            <GifGridItem key={image.id} image={image} />
+          ))}
+        </ol>
+      </div>
     </>
   )
 }
