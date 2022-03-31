@@ -11,4 +11,17 @@ describe("Testing useFetchGif", () => {
     expect(data).toEqual([])
     expect(loading).toBe(true)
   })
+
+  test("it should return an image array and loading in false", async () => {
+    const category = "One Punch"
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useFetchGif(category)
+    )
+
+    await waitForNextUpdate()
+    const { data, loading } = result.current
+
+    expect(data.length).toBe(10)
+    expect(loading).toBe(false)
+  })
 })
