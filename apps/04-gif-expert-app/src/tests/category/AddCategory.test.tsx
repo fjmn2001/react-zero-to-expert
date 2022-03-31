@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest"
+import { describe, expect, fn, test } from "vitest"
 import { shallow } from "enzyme"
 import AddCategory from "../../category/AddCategory"
 
@@ -18,5 +18,17 @@ describe("Testing AddCategory", () => {
     input.simulate("change", { target: { value } })
 
     expect(wrapper.find("input").prop("value")).toBe(value)
+  })
+
+  test("it should do nothing when the input is empty", () => {
+    const setCategories = fn()
+    const wrapper = shallow(<AddCategory setCategories={setCategories} />)
+    const form = wrapper.find("form")
+
+    form.simulate("submit", {
+      preventDefault: () => {},
+    })
+
+    expect(setCategories).toHaveBeenCalledTimes(0)
   })
 })
