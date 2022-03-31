@@ -31,4 +31,19 @@ describe("Testing AddCategory", () => {
 
     expect(setCategories).toHaveBeenCalledTimes(0)
   })
+
+  test("it should call setCategories and clean the input text", () => {
+    const setCategories = fn()
+    const wrapper = shallow(<AddCategory setCategories={setCategories} />)
+
+    const value = "He there!"
+    wrapper.find("input").simulate("change", { target: { value } })
+
+    wrapper.find("form").simulate("submit", {
+      preventDefault: () => {},
+    })
+
+    expect(setCategories).toHaveBeenCalledTimes(1)
+    expect(wrapper.find("input").prop("value")).toBe("")
+  })
 })
