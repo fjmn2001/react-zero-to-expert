@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import HookApp from "./HookApp"
+import CounterApp from "../01-useState/components/CounterApp"
 
-render(<HookApp />, document.getElementById("root"))
+render(<CounterApp />, document.getElementById("root"))
