@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import HookApp from "./HookApp"
+import CounterWithCustomHook from "../01-useState/components/CounterWithCustomHook"
 
-render(<HookApp />, document.getElementById("root"))
+render(<CounterWithCustomHook />, document.getElementById("root"))
