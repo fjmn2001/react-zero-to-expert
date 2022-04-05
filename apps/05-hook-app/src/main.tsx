@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import CounterWithCustomHook from "../01-useState/components/CounterWithCustomHook"
+import SimpleForm from "../02-useEffect/components/SimpleForm"
 
-render(<CounterWithCustomHook />, document.getElementById("root"))
+render(<SimpleForm />, document.getElementById("root"))
