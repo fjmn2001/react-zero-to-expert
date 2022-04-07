@@ -1,0 +1,8 @@
+GET https://www.breakingbadapi.com/api
+Accept: application/json
+
+###
+
+GET https://breakingbadapi.com/api/quotes/1
+Accept: application/json
+
