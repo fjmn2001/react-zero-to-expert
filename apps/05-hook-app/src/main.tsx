@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import FormWithCustomHook from "../02-useEffect/components/FormWithCustomHook"
+import MultipleCustomHooks from "../03-examples/components/MultipleCustomHooks"
 
-render(<FormWithCustomHook />, document.getElementById("root"))
+render(<MultipleCustomHooks />, document.getElementById("root"))
