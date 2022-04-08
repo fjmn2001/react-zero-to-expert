@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import MultipleCustomHooks from "../03-examples/components/MultipleCustomHooks"
+import RealExampleRef from "../04-useRef/components/RealExampleRef"
 
-render(<MultipleCustomHooks />, document.getElementById("root"))
+render(<RealExampleRef />, document.getElementById("root"))
