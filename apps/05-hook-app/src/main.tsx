@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import Memorize from "../06-memos/components/Memorize"
+import MemoHook from "../06-memos/components/MemoHook"
 
-render(<Memorize />, document.getElementById("root"))
+render(<MemoHook />, document.getElementById("root"))
