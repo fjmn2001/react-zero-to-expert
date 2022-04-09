@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import Layout from "../05-useLayoutEffect/components/Layout"
+import Memorize from "../06-memos/components/Memorize"
 
-render(<Layout />, document.getElementById("root"))
+render(<Memorize />, document.getElementById("root"))
