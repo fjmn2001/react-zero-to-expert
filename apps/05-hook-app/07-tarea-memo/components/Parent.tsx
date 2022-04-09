@@ -1,5 +1,5 @@
-import { Child } from "./Child"
-import { useState } from "react"
+import Child from "./Child"
+import { useCallback, useState } from "react"
 
 import "./parent.css"
 
@@ -7,9 +7,12 @@ export const Parent = () => {
   const numbers = [2, 4, 6, 8, 10]
   const [value, setValue] = useState(0)
 
-  const increment = (num: number) => {
-    setValue(value + num)
-  }
+  const increment = useCallback(
+    (num: number) => {
+      setValue((value) => value + num)
+    },
+    [setValue]
+  )
 
   return (
     <div>

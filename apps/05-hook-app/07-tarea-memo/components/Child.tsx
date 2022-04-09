@@ -1,9 +1,11 @@
+import { memo } from "react"
+
 interface Props {
   counter: number
   increment: (number: number) => void
 }
 
-export const Child = ({ counter, increment }: Props) => {
+const Child = memo(({ counter, increment }: Props) => {
   console.log("  Me volví a generar :(  ")
 
   return (
@@ -11,4 +13,8 @@ export const Child = ({ counter, increment }: Props) => {
       {counter}
     </button>
   )
-}
+})
+
+Child.displayName = "Child"
+
+export default Child
