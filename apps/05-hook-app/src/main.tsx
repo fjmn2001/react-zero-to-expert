@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import MemoHook from "../06-memos/components/MemoHook"
+import CallbackHook from "../06-memos/components/CallbackHook"
 
-render(<MemoHook />, document.getElementById("root"))
+render(<CallbackHook />, document.getElementById("root"))
