@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import CallbackHook from "../06-memos/components/CallbackHook"
+import { Parent } from "../07-tarea-memo/components/Parent"
 
-render(<CallbackHook />, document.getElementById("root"))
+render(<Parent />, document.getElementById("root"))
