@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import RealExampleRef from "../04-useRef/components/RealExampleRef"
+import Layout from "../05-useLayoutEffect/components/Layout"
 
-render(<RealExampleRef />, document.getElementById("root"))
+render(<Layout />, document.getElementById("root"))
