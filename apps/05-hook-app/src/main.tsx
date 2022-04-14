@@ -1,6 +1,6 @@
 import { render } from "react-dom"
 
 import "./index.css"
-import RealExampleRef from "../04-useRef/components/RealExampleRef"
+import TodoApp from "../08-useReducer/TodoApp"
 
-render(<RealExampleRef />, document.getElementById("root"))
+render(<TodoApp />, document.getElementById("root"))
