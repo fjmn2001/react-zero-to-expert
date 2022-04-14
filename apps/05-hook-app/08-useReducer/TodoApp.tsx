@@ -1,19 +1,51 @@
 import "./styles.css"
-import { useReducer } from "react"
+import { FormEvent, useEffect, useReducer } from "react"
 import { Todo } from "./types"
-import todoReducer from "./todoReducer"
+import todoReducer, { TodoReducerAction } from "./todoReducer"
+import useForm from "../02-useEffect/hooks/useForm"
 
-const initialState: Todo[] = [
-  {
-    id: new Date().getTime().toString(),
-    description: "Walk",
-    done: false,
-  },
-]
+interface FormValues {
+  description: string
+}
+
+const initialState: Todo[] = []
+
+const init = () => {
+  const todos = localStorage.getItem("todos")
+
+  return todos ? JSON.parse(todos) : []
+}
 
 const TodoApp = () => {
-  const [todos] = useReducer(todoReducer, initialState)
-  console.log(todos)
+  const [todos, dispatch] = useReducer(todoReducer, initialState, init)
+  const [formValues, handleInputChanges, resetFormValue] = useForm<FormValues>({
+    description: "",
+  })
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+
+  const handleAddTodo = (e: FormEvent) => {
+    e.preventDefault()
+
+    if (formValues.description.trim().length === 0) {
+      return
+    }
+
+    const newTodo: Todo = {
+      id: new Date().getTime().toString(),
+      description: formValues.description,
+      done: false,
+    }
+    const action: TodoReducerAction = {
+      type: "add",
+      payload: newTodo,
+    }
+    dispatch(action)
+    resetFormValue()
+  }
+
   return (
     <>
       <h1>
@@ -38,16 +70,21 @@ const TodoApp = () => {
           <h4>Add Todo</h4>
           <hr />
 
-          <form action="">
+          <form action="" onSubmit={handleAddTodo}>
             <input
               type="text"
               name={"description"}
               className={"form-control"}
               placeholder={"learn..."}
               autoComplete={"off"}
+              value={formValues.description}
+              onChange={handleInputChanges}
             />
 
-            <button className={"btn btn-outline-primary mt-1 btn-block"}>
+            <button
+              type={"submit"}
+              className={"btn btn-outline-primary mt-1 btn-block"}
+            >
               Add
             </button>
           </form>
