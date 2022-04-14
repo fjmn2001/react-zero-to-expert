@@ -1,6 +1,6 @@
 import { Todo } from "./types"
 
-type TodoReducerAction = {
+export type TodoReducerAction = {
   type: "add"
   payload: Todo
 }
