@@ -26,6 +26,14 @@ const TodoApp = () => {
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
 
+  const handleDelete = (id: string) => {
+    dispatch({ type: "delete", payload: id })
+  }
+
+  const handleToggle = (id: string) => {
+    dispatch({ type: "toggle", payload: id })
+  }
+
   const handleAddTodo = (e: FormEvent) => {
     e.preventDefault()
 
@@ -58,10 +66,20 @@ const TodoApp = () => {
           <ul className={"list-group list-group-flush"}>
             {todos.map((todo, i) => (
               <li key={todo.id} className={"list-group-item"}>
-                <p className={"text-center"}>
+                <p
+                  className={
+                    todo.done ? "text-center completed" : "text-center"
+                  }
+                  onClick={() => handleToggle(todo.id)}
+                >
                   {i + 1}. {todo.description}
                 </p>
-                <button className={"btn btn-danger"}>Delete</button>
+                <button
+                  className={"btn btn-danger"}
+                  onClick={() => handleDelete(todo.id)}
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
