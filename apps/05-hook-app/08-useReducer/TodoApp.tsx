@@ -3,6 +3,7 @@ import { FormEvent, useEffect, useReducer } from "react"
 import { Todo } from "./types"
 import todoReducer, { TodoReducerAction } from "./todoReducer"
 import useForm from "../02-useEffect/hooks/useForm"
+import TodoList from "./components/TodoList"
 
 interface FormValues {
   description: string
@@ -63,26 +64,11 @@ const TodoApp = () => {
 
       <div className={"row"}>
         <div className={"col-7"}>
-          <ul className={"list-group list-group-flush"}>
-            {todos.map((todo, i) => (
-              <li key={todo.id} className={"list-group-item"}>
-                <p
-                  className={
-                    todo.done ? "text-center completed" : "text-center"
-                  }
-                  onClick={() => handleToggle(todo.id)}
-                >
-                  {i + 1}. {todo.description}
-                </p>
-                <button
-                  className={"btn btn-danger"}
-                  onClick={() => handleDelete(todo.id)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
+          <TodoList
+            todos={todos}
+            handleToggle={handleToggle}
+            handleDelete={handleDelete}
+          />
         </div>
         <div className={"col-5"}>
           <h4>Add Todo</h4>
