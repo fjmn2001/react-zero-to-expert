@@ -14,7 +14,7 @@ const TodoListItem = ({
   handleDelete,
 }: TodoListItemProps) => {
   return (
-    <li key={todo.id} className={"list-group-item"}>
+    <li className={"list-group-item"}>
       <p
         className={todo.done ? "text-center completed" : "text-center"}
         onClick={() => handleToggle(todo.id)}
