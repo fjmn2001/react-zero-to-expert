@@ -1,19 +1,21 @@
-import { Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Invoice from "./pages/Invoice"
+import { Link, Outlet } from "react-router-dom"
 
 const ReactRouterApp = () => {
   return (
-    <>
-      <h1>Welcome to React Router!</h1>
+    <div>
+      <h1>Bookkeeper!</h1>
       <hr />
-      <Routes>
-        <Route path={"/"} element={<Home />}></Route>
-        <Route path={"/about"} element={<About />}></Route>
-        <Route path={"/invoice/:invoiceId"} element={<Invoice />}></Route>
-      </Routes>
-    </>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to={"/invoices"}>Invoices</Link>
+        <Link to={"/expenses"}>Expenses</Link>
+      </nav>
+      <Outlet />
+    </div>
   )
 }
 
