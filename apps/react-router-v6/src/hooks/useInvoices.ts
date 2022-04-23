@@ -32,8 +32,12 @@ const invoices = [
 ]
 
 const useInvoices = () => {
+  const getInvoice = (number: string) =>
+    invoices.find((i) => i.number === Number(number))
+
   return {
     invoices,
+    getInvoice,
   }
 }
 

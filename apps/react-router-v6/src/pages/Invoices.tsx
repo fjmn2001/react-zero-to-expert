@@ -1,5 +1,5 @@
 import useInvoices from "../hooks/useInvoices"
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 const Invoices = () => {
   const { invoices } = useInvoices()
@@ -22,6 +22,7 @@ const Invoices = () => {
           </Link>
         ))}
       </nav>
+      <Outlet />
     </div>
   )
 }
