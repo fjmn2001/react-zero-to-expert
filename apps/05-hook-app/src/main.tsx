@@ -1,6 +1,8 @@
-import { render } from "react-dom"
-
-import "./index.css"
+import { createRoot } from "react-dom/client"
 import MainApp from "../09-useContext/MainApp"
 
-render(<MainApp />, document.getElementById("root"))
+import "./index.css"
+
+const container = document.getElementById("root")
+const root = createRoot(container!)
+root.render(<MainApp />)
