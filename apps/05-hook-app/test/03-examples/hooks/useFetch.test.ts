@@ -35,4 +35,19 @@ describe("Testing useFetch", () => {
     expect(loading).toBe(false)
     expect(error).toBe(null)
   })
+
+  // @ts-ignore
+  test("it should handle the error", async () => {
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useFetch(`https://reqres.in/invaid/users?page=2`)
+    )
+
+    await waitForNextUpdate({ timeout: 2000 })
+
+    const { data, loading, error } = result.current
+
+    expect(data).toEqual(null)
+    expect(loading).toBe(false)
+    expect(error).not.toBe(null)
+  })
 })
