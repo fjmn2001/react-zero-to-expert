@@ -13,4 +13,26 @@ describe("Testing useFetch", () => {
     expect(loading).toBe(false)
     expect(error).toBe(null)
   })
+
+  // @ts-ignore
+  test("it should return correct values", async () => {
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useFetch(`https://breakingbadapi.com/api/quotes/1`)
+    )
+
+    await waitForNextUpdate({ timeout: 2000 })
+
+    const { data, loading, error } = result.current
+
+    expect(data).toEqual([
+      {
+        quote_id: 1,
+        quote: "I am not in danger, Skyler. I am the danger!",
+        author: "Walter White",
+        series: "Breaking Bad",
+      },
+    ])
+    expect(loading).toBe(false)
+    expect(error).toBe(null)
+  })
 })
