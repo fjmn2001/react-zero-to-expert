@@ -23,6 +23,13 @@ const useFetch = (url: string) => {
             data,
           })
       })
+      .catch((e) => {
+        setState({
+          loading: false,
+          error: e.message,
+          data: null,
+        })
+      })
   }, [url])
 
   return state
