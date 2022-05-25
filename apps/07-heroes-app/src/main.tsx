@@ -1,5 +1,4 @@
 import { createRoot } from "react-dom/client"
-import MainApp from "../09-useContext/MainApp"
 
 import "./index.css"
 
