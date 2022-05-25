@@ -1,0 +1,27 @@
+// Vitest Snapshot v1
+
+exports[`Testing <CounterApp/> > it should show CounterApp 1`] = `
+<Fragment>
+  <h1>
+    Counter App
+  </h1>
+  <h2>
+    0
+  </h2>
+  <button
+    onClick={[Function]}
+  >
+    +1
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    -1
+  </button>
+</Fragment>
+`;
