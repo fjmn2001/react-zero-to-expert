@@ -1,0 +1,23 @@
+{
+  "name": "react-zero-to-expert",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "apps/**/frontend",
+    "apps/**"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fjmn2001/react-zero-to-expert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fjmn2001/react-zero-to-expert/issues"
+  },
+  "homepage": "https://github.com/fjmn2001/react-zero-to-expert#readme"
+}
