@@ -1,10 +1,10 @@
 import { describe, expect, test } from "vitest"
 import { render } from "@testing-library/react"
-import HookApp from "../src/HookApp"
+import HeroesApp from "../src/HookApp"
 
 describe("Testing HookApp.tsx", () => {
   test("it should show correctly", () => {
-    const { container } = render(<HookApp />)
+    const { container } = render(<HeroesApp />)
     expect(container).toMatchSnapshot()
   })
 })

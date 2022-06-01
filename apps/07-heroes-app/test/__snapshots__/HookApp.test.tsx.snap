@@ -1,9 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`Testing HookApp.tsx > it should show correctly 1`] = `
-<div>
-  <h1>
-    Hi there!
-  </h1>
-</div>
-`;
