@@ -1,0 +1,47 @@
+// Vitest Snapshot v1
+
+exports[`Testing <GifGrid/> > it should show correctly 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__fadeIn"
+  >
+    One Punch
+  </h3>
+  <p
+    className="animate__animated animate__flash"
+  >
+    Loading...
+  </p>
+  <div
+    className="card-grid"
+  >
+    <ol />
+  </div>
+</Fragment>
+`;
+
+exports[`Testing <GifGrid/> > it should show items when images have been loaded 1`] = `
+<Fragment>
+  <h3
+    className="animate__animated animate__fadeIn"
+  >
+    One Punch
+  </h3>
+  <div
+    className="card-grid"
+  >
+    <ol>
+      <GifGridItem
+        image={
+          {
+            "id": "custom-id",
+            "title": "custom-title",
+            "url": "custom-url",
+          }
+        }
+        key="custom-id"
+      />
+    </ol>
+  </div>
+</Fragment>
+`;

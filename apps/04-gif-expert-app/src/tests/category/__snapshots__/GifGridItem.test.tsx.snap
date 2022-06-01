@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`Testing GifGridItem > it should show correctly 1`] = `
+<div
+  className="card animate__animated animate__fadeIn"
+>
+  <img
+    alt="custom-title"
+    src="custom-url"
+  />
+  <p>
+    custom-title
+  </p>
+</div>
+`;
