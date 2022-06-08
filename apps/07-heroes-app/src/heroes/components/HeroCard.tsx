@@ -29,7 +29,7 @@ const HeroCard = ({ hero }: Props) => {
               <p className="card-text">
                 <small className="text-muted">{hero.first_appearance}</small>
               </p>
-              <Link to={`heroes/${hero.id}`}>More...</Link>
+              <Link to={`/heroes/${hero.id}`}>More...</Link>
             </div>
           </div>
         </div>
