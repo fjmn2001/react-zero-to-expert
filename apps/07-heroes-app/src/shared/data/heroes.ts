@@ -1,4 +1,6 @@
-export const heroes = [
+import { Hero } from "../../heroes/types"
+
+export const heroes: Array<Hero> = [
   {
     id: "dc-batman",
     superhero: "Batman",

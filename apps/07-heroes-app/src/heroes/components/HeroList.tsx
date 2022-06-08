@@ -1,5 +1,6 @@
 import { getHeroesByPublisher } from "../selectors/getHeroesByPublisher"
 import { Publisher } from "../types"
+import HeroCard from "./HeroCard"
 
 interface Props {
   publisher: Publisher
@@ -9,13 +10,11 @@ const HeroList = ({ publisher }: Props) => {
   const heroes = getHeroesByPublisher(publisher)
 
   return (
-    <>
-      <ul>
-        {heroes.map((hero) => (
-          <li key={hero.id}>{hero.superhero}</li>
-        ))}
-      </ul>
-    </>
+    <div className={"row row-cols-1 row-cols-md-3 g-3"}>
+      {heroes.map((hero) => (
+        <HeroCard key={hero.id} hero={hero} />
+      ))}
+    </div>
   )
 }
 
