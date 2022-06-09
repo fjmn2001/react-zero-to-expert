@@ -1,22 +1,32 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import useForm from "../../shared/hooks/useForm"
 import getHeroesByName from "../../heroes/selectors/getHeroesByName"
 import HeroCard from "../../heroes/components/HeroCard"
 import { Hero } from "../../heroes/types"
+import { useNavigate } from "react-router-dom"
+import queryParams from "../../shared/utils/queryParams"
 
 interface FormValues {
   search: string
 }
 
 const SearchView = () => {
-  const [heroes, setHeroes] = useState<Array<Hero>>([])
+  const navigate = useNavigate()
+  const params = queryParams()
+  const query = params.get("q") ?? ""
+
+  const [heroes, setHeroes] = useState<Array<Hero>>(getHeroesByName(query))
   const [formValues, handleInputChange] = useForm<FormValues>({
-    search: "",
+    search: query,
   })
+
+  useEffect(() => {
+    setHeroes(getHeroesByName(query))
+  }, [query])
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault()
-    setHeroes(getHeroesByName(formValues.search))
+    navigate(`?q=${formValues.search}`)
   }
 
   return (
