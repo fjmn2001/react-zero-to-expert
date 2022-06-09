@@ -1,18 +1,22 @@
-import { FormEvent } from "react"
+import { FormEvent, useState } from "react"
 import useForm from "../../shared/hooks/useForm"
+import getHeroesByName from "../../heroes/selectors/getHeroesByName"
+import HeroCard from "../../heroes/components/HeroCard"
+import { Hero } from "../../heroes/types"
 
 interface FormValues {
   search: string
 }
 
 const SearchView = () => {
+  const [heroes, setHeroes] = useState<Array<Hero>>([])
   const [formValues, handleInputChange] = useForm<FormValues>({
     search: "",
   })
 
   const handleSearch = (e: FormEvent) => {
     e.preventDefault()
-    console.log("formValues", formValues)
+    setHeroes(getHeroesByName(formValues.search))
   }
 
   return (
@@ -40,6 +44,13 @@ const SearchView = () => {
               Search
             </button>
           </form>
+        </div>
+        <div className={"col-7"}>
+          <h4>Results</h4>
+          <hr />
+          {heroes.map((hero) => (
+            <HeroCard key={hero.id} hero={hero} />
+          ))}
         </div>
       </div>
     </>
