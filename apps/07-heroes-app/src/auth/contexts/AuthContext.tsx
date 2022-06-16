@@ -6,8 +6,8 @@ const initialState: {
   logged: boolean
   name: string | null
 } = {
-  logged: false,
-  name: null,
+  logged: JSON.parse(localStorage.getItem("logged") ?? "false"),
+  name: localStorage.getItem("name"),
 }
 
 export const AuthContext = createContext({
@@ -26,10 +26,16 @@ export const AuthProvider = ({
   const [state, dispatch] = useReducer(authReducer, initialState)
 
   const login = (name: string) => {
+    localStorage.setItem("logged", "true")
+    localStorage.setItem("name", name)
+
     dispatch({ type: types.login, payload: name })
   }
 
   const logout = () => {
+    localStorage.removeItem("logged")
+    localStorage.removeItem("name")
+
     dispatch({ type: types.logout, payload: "" })
   }
 

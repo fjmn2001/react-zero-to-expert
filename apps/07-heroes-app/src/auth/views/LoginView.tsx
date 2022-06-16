@@ -7,8 +7,11 @@ const LoginView = () => {
   const { login } = useAuthContext()
 
   const handleLogin = () => {
+    const lastPath = localStorage.getItem("lastPath") ?? HOME
+
     login("Francisco")
-    navigate(HOME, {
+
+    navigate(lastPath, {
       replace: true,
     })
   }

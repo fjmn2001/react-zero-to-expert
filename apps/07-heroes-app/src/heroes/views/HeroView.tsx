@@ -7,7 +7,7 @@ const HeroView = () => {
   const navigate = useNavigate()
 
   if (!id) {
-    return `${id} does not exists.`
+    return <h1>${id} does not exists.</h1>
   }
 
   const hero = useMemo(() => getHeroById(id), [id])

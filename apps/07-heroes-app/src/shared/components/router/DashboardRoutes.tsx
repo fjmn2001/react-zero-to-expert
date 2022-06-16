@@ -1,5 +1,5 @@
 import Navbar from "../ui/Navbar"
-import { Outlet, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import MarvelView from "../../../marvel/views/MarvelView"
 import DcView from "../../../dc/views/DcView"
 import SearchView from "../../../search/views/SearchView"
