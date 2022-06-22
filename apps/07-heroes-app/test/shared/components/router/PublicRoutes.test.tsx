@@ -27,37 +27,36 @@ describe("Testing PublicRoutes.tsx", () => {
     expect(screen.getByText("PublicRoute")).toBeTruthy()
   })
 
-  // test("it should return the navigate if is logged", () => {
-  //   const initialValue = {
-  //     authState: {
-  //       logged: true,
-  //       name: "Francisco",
-  //     },
-  //     login: (name: string) => {
-  //       console.log(name)
-  //     },
-  //     logout: () => {},
-  //   }
-  //
-  //   render(
-  //     <AuthContext.Provider value={initialValue}>
-  //       <MemoryRouter initialEntries={["/login"]}>
-  //         <Routes>
-  //           <Route
-  //             path={"login"}
-  //             element={
-  //               <PublicRoutes>
-  //                 <h1>PublicRoute</h1>
-  //               </PublicRoutes>
-  //             }
-  //           />
-  //           <Route path={"marvel"} element={<h1>Marvel Page</h1>} />
-  //         </Routes>
-  //       </MemoryRouter>
-  //     </AuthContext.Provider>
-  //   )
-  //
-  //   // screen.debug()
-  //   // expect(screen.getByText("PublicRoute")).toBeTruthy()
-  // })
+  test("it should return the navigate if is logged", () => {
+    const initialValue = {
+      authState: {
+        logged: true,
+        name: "Francisco",
+      },
+      login: (name: string) => {
+        console.log(name)
+      },
+      logout: () => {},
+    }
+
+    render(
+      <AuthContext.Provider value={initialValue}>
+        <MemoryRouter initialEntries={["/login"]}>
+          <Routes>
+            <Route
+              path={"login"}
+              element={
+                <PublicRoutes>
+                  <h1>PublicRoute</h1>
+                </PublicRoutes>
+              }
+            />
+            <Route path={"/"} element={<h1>Marvel Page</h1>} />
+          </Routes>
+        </MemoryRouter>
+      </AuthContext.Provider>
+    )
+
+    expect(screen.getByText("Marvel Page")).toBeTruthy()
+  })
 })
