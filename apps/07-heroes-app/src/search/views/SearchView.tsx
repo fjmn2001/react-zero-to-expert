@@ -1,9 +1,10 @@
 import { FormEvent, useMemo } from "react"
+import queryString from "query-string"
+
 import useForm from "../../shared/hooks/useForm"
 import getHeroesByName from "../../heroes/selectors/getHeroesByName"
 import HeroCard from "../../heroes/components/HeroCard"
-import { useNavigate } from "react-router-dom"
-import queryParams from "../../shared/utils/queryParams"
+import { useLocation, useNavigate } from "react-router-dom"
 
 interface FormValues {
   search: string
@@ -11,8 +12,9 @@ interface FormValues {
 
 const SearchView = () => {
   const navigate = useNavigate()
-  const params = queryParams()
-  const query = params.get("q") ?? ""
+  const location = useLocation()
+  const { q = "" } = queryString.parse(location.search)
+  const query = q as string
 
   const heroesFiltered = useMemo(() => getHeroesByName(query), [query])
   const [formValues, handleInputChange] = useForm<FormValues>({
@@ -32,7 +34,7 @@ const SearchView = () => {
         <div className={"col-5"}>
           <h4>Search</h4>
           <hr />
-          <form onSubmit={handleSearch}>
+          <form onSubmit={handleSearch} aria-label={"form"}>
             <input
               type="text"
               placeholder={"Search a hero"}
